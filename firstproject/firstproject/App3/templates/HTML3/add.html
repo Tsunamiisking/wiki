@@ -1,0 +1,15 @@
+{% extends "HTML3/layout.html "%}
+
+{% block body %}
+    <h1>Add Task</h1>
+
+    <form action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        {{form}}
+        <!-- <input name="input-box" type="text" placeholder="Add to-do"> -->
+        <input type="submit" >
+    </form>
+     <!-- The url 'index' references the url name in the urlpatterns in the url.py file  -->
+    <a href="{% url 'index' %}">View tasks</a>
+
+{% endblock %}
