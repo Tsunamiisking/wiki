@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{query}}
+{% endblock %}
+
+{% block body %}
+    <h1>Searched Pages</h1>
+    <ul>
+        {% for substring in searchResult %}
+            <!-- <li>{{ searchResult }}</li> -->
+            <li><a href="{% url 'entriesroute' substring %}">{{ substring }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

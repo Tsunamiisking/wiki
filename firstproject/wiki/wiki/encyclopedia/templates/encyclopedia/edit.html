@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{query}}
+{% endblock %}
+
+{% block body %}
+<body>
+    <form action="{% url 'editentries' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input value="{{query}}" class="form-control" type="text" name="title" id="title"> <br>
+            <label for="message">Edit MARKDOWN content</label>
+            <textarea class="form-control" id="message" name="message" cols="3" rows="10">{{ previousContent }}</textarea>
+            <button class="btn btn-primary" type="submit">Edit</button>
+        </div>
+    </form>
+</body>
+
+{% endblock %}

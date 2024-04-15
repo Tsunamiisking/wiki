@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{query}}
+{% endblock %}
+
+{% block body %}
+
+{{entryPageConent}}
+
+<form action="{% url 'entriesroute' query %}" method="post">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit">Edit</button>
+</form>
+
+{% endblock %}
